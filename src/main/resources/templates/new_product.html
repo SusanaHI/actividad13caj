@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>Crear Nueva Persona</title>
+    </head>
+    <body>
+        <div align="center">
+            <h1>Crear Nueva Persona</h1>
+            <br />
+            <form action="#" th:action="@{/save}" th:object="${product}"
+                  method="post">
+
+                <table border="0" cellpadding="10">
+                    <tr>				
+                            <td>ID:</td>
+                            <td>
+                                    <input type="text" th:field="*{id}" readonly="readonly" />
+                            </td>
+                    </tr>			
+                    <tr>				
+                            <td>Nombre:</td>
+                            <td>
+                                    <input type="text" th:field="*{nombre}" />
+                            </td>
+                    </tr>
+                    <tr>
+                            <td>Apellido:</td>
+                            <td><input type="text" th:field="*{apellido}" /></td>
+                    </tr>
+                    <tr>
+                            <td>Edad:</td>
+                            <td><input type="text" th:field="*{edad}" /></td>
+                    </tr>
+                    <tr>
+                            <td>Genero:</td>
+                            <td><input type="text" th:field="*{genero}" /></td>
+                    </tr>
+                    <tr>
+                            <td>Peso:</td>
+                            <td><input type="text" th:field="*{peso}" /></td>
+                    </tr>
+                    <tr>
+                            <td>Estatura:</td>
+                            <td><input type="text" th:field="*{estatura}" /></td>
+                    </tr>
+                    <tr>
+                            <td>Fecha:</td>
+                            <td><input type="text" th:field="*{fecha}" /></td>
+                    </tr>								
+                    <tr>
+                        <td colspan="2"><button type="submit">Save</button> </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <title>IMC</title>
+    </head>
+    <body>
+        <div align="center">
+            <p th:text="${session.mySessionAttribute}" th:unless="${session == null}">[...]</p>
+            <h1>Datos de Personas</h1>
+            <a href="new">Registrar Nueva Persona</a>
+            <br/><br/>
+            <table border="1" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Genero</th>
+                        <th>Peso</th>
+                        <th>Estatura</th>
+                        <th>IMC</th>
+                        <th>Fecha</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${listProducts}">
+                        <td th:text="${product.id}">ID</td>
+                        <td th:text="${product.nombre}">Nombre</td>
+                        <td th:text="${product.apellido}">Apellido</td>
+                        <td th:text="${product.edad}">Edad</td>
+                        <td th:text="${product.genero}">Genero</td>
+                        <td th:text="${product.peso}">Peso</td>
+                        <td th:text="${product.estatura}">Estatura</td>
+                        <td th:text="${@Operacion.IMC(product.peso, product.estatura)}">IMC</td>
+                        <td th:text="${product.fecha}">Fecha</td>
+                        <td>
+                            <a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+                            &nbsp;&nbsp;&nbsp;
+                            <a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>    
+    </body>
+</html>
