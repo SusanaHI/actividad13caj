@@ -55,7 +55,18 @@ public class AppController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("product") Product product) {
-        service.save(product);
+        if(product.edad>=15){
+            if(product.peso>0){
+                if(product.estatura>0.99 && product.estatura<2.6){
+                    service.save(product);
+                }
+            }
+        }else{
+            System.out.println("\n TOMA EN CUENTA LAS SIGUIENTES CONSIDERACIONES:");
+            System.out.println("La edad no puede ser menor a 15.");
+            System.out.println("El peso debe ser positivo y mayor a 0.");
+            System.out.println("La estatura debe expresarse en metros, debe ser mayor a 0.99 y menor a 2.6.");
+        }
 
         return "redirect:/";
     }

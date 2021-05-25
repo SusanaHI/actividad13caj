@@ -10,27 +10,31 @@ public class Product {
     
     private Long id;
     private String nombre;
-    private String apellido;
-    private int edad;
+    private String apellidoP;
+    private String apellidoM;
+    public int edad;
     private String genero;
-    private double peso;
-    private double estatura;
+    public double peso;
+    public double estatura;
     private double imc;
+    private String resultado;
     private String fecha;
 
     public Product() {
     }
 
-    protected Product(Long id, String nombre, String apellido, int edad, String genero, double peso, double estatura, double imc, String fecha) {
+    protected Product(Long id, String nombre, String apellidoP, String apellidoM, int edad, String genero, double peso, double estatura, double imc, String resultado, String fecha) {
         super();
         this.id = id;                
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellidoP = apellidoP;
+        this.apellidoM = apellidoM;
         this.edad = edad;
         this.genero = genero;
         this.peso = peso;
         this.estatura = estatura;
         this.imc = imc;
+        this.resultado = resultado;
         this.fecha = fecha;
     }
 
@@ -53,12 +57,20 @@ public class Product {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidoP() {
+        return apellidoP;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidoP(String apellidoP) {
+        this.apellidoP = apellidoP;
+    }
+    
+    public String getApellidoM() {
+        return apellidoM;
+    }
+
+    public void setApellidoM(String apellidoM) {
+        this.apellidoM = apellidoM;
     }
 
     public int getEdad() {
@@ -99,6 +111,14 @@ public class Product {
 
     public void setImc(double imc) {
         this.imc = imc;
+    }
+    
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
     }
 
     public String getFecha() {

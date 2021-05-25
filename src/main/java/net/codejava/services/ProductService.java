@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Component("Operacion")
 public class ProductService {
 
+    public double IMCC, IMCI;
+    
 	@Autowired
 	private ProductRepository repo;
 	
@@ -34,7 +36,21 @@ public class ProductService {
 	}
         
         public double IMC(double peso, double estatura){
-            return peso/(Math.pow(estatura,2));
+            IMCC=peso/(Math.pow(estatura,2));
+            return IMCC;
         }
         
+        public String IMCR(){
+            if(IMCC<18.5){
+                return "Delgadez extrema";
+            }else if(IMCC>=18.5&&IMCC<=24.9){
+                return "Peso Normal";
+            }else if(IMCC>=25&&IMCC<=29.9){
+                return "Sobrepeso";
+            }else if(IMCC>=30&&IMCC<=34.9){
+                return "Obesidad";
+            }else{
+                return "Obesidad Extrema";
+            }
+        }
 }
